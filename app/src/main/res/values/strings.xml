@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MockAnimation</string>
+    <string name="title">Set up a monthly\nbudget goal</string>
+    <string name="text_total">Total budget is</string>
+    <string name="dollar">$</string>
+    <string name="btn_save">Save</string>
+</resources>
