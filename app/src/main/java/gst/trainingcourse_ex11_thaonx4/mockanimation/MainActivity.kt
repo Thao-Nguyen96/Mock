@@ -6,11 +6,10 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
+import android.view.View
 import android.view.animation.Animation
 import android.view.animation.AnimationUtils
-import androidx.activity.viewModels
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
@@ -19,12 +18,9 @@ import androidx.viewpager2.widget.ViewPager2
 import gst.trainingcourse_ex11_thaonx4.mockanimation.adapter.ItemAdapter
 import gst.trainingcourse_ex11_thaonx4.mockanimation.adapter.RulerAdapter
 import gst.trainingcourse_ex11_thaonx4.mockanimation.databinding.ActivityMainBinding
-import gst.trainingcourse_ex11_thaonx4.mockanimation.model.DataProvider
 import gst.trainingcourse_ex11_thaonx4.mockanimation.model.Item
 import gst.trainingcourse_ex11_thaonx4.mockanimation.utils.Constants
 import gst.trainingcourse_ex11_thaonx4.mockanimation.viewmodel.BudgetViewModel
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import kotlin.math.abs
 
 class MainActivity : AppCompatActivity() {
@@ -62,10 +58,12 @@ class MainActivity : AppCompatActivity() {
 
         getTextNotify(Constants.NORMAL, Constants.NORMAL_DESCRIPTION)
 
-        budgetViewModel.insertBudget(Item(0,R.drawable.ic_cafe,"Cafe","300"))
-        budgetViewModel.insertBudget(Item(1,R.drawable.ic_gym,"Gym","400"))
-        budgetViewModel.insertBudget(Item(2,R.drawable.ic_taxi,"Taxi","700"))
-        budgetViewModel.insertBudget(Item(3,R.drawable.ic_house,"House","200"))
+        //chua tao Instance để cho Insert 1 lan
+
+//        budgetViewModel.insertBudget(Item(0,R.drawable.ic_cafe,"Cafe","500"))
+//        budgetViewModel.insertBudget(Item(1,R.drawable.ic_gym,"Gym","400"))
+//        budgetViewModel.insertBudget(Item(2,R.drawable.ic_taxi,"Taxi","700"))
+//        budgetViewModel.insertBudget(Item(3,R.drawable.ic_house,"House","800"))
 
         budgetViewModel.getAll().observe(this,{
 
@@ -111,8 +109,12 @@ class MainActivity : AppCompatActivity() {
                 page.scaleY = 0.85f + r * 0.15f
                 page.alpha = 0.5f
 
+                //page.visibility = View.GONE
+
                 if (position == 0f) {
                     page.alpha = 1f
+                    //page.visibility = View.VISIBLE
+
                 }
             }
             binding.vp2.setPageTransformer(compositePageTransformer)
@@ -128,6 +130,8 @@ class MainActivity : AppCompatActivity() {
                 val priceEnd: Int = items[position].price.toInt()
 
                 startCountAnimation(priceStart, priceEnd)
+
+                Log.d("arraylist", position.toString())
 
                 when(position){
                     0 -> binding.btnSave.setOnClickListener {
@@ -203,7 +207,7 @@ class MainActivity : AppCompatActivity() {
 
                 //vi tri dau tien con nhin thay tren man hinh khi keo recyclerview
                 val visiblePosition = linearLayoutManager!!.findFirstVisibleItemPosition()
-                val firstPrice: Int = visiblePosition.plus(40) * 10
+                val firstPrice: Int = visiblePosition.plus(2) * 10
 
                 Handler(Looper.getMainLooper()).postDelayed({
                     currentPrice = firstPrice
@@ -212,7 +216,7 @@ class MainActivity : AppCompatActivity() {
                 startCountAnimation(currentPrice, firstPrice)
 
                 when (firstPrice) {
-                    in lowPrice until normalPrice -> {
+                    in 20 until normalPrice -> {
                         getTextNotify(Constants.NORMAL, Constants.NORMAL_DESCRIPTION)
                     }
                     in normalPrice until highPrice -> {

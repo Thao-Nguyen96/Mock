@@ -14,8 +14,9 @@
         <entry key="..\:/MockAnimation/app/src/main/res/drawable/view_bottom.xml" value="0.19583333333333333" />
         <entry key="..\:/MockAnimation/app/src/main/res/drawable/view_bottom_while.xml" value="0.17592592592592593" />
         <entry key="..\:/MockAnimation/app/src/main/res/layout/activity_main.xml" value="0.22" />
+        <entry key="..\:/MockAnimation/app/src/main/res/layout/item_collap.xml" value="0.1814814814814815" />
         <entry key="..\:/MockAnimation/app/src/main/res/layout/item_layout.xml" value="0.22" />
-        <entry key="..\:/MockAnimation/app/src/main/res/layout/item_ruler.xml" value="0.21" />
+        <entry key="..\:/MockAnimation/app/src/main/res/layout/item_ruler.xml" value="0.67" />
       </map>
     </option>
   </component>

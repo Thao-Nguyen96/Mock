@@ -4,9 +4,11 @@ import android.annotation.SuppressLint
 import android.graphics.Color
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.core.view.updateLayoutParams
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
+import gst.trainingcourse_ex11_thaonx4.mockanimation.R
 import gst.trainingcourse_ex11_thaonx4.mockanimation.model.Item
 import gst.trainingcourse_ex11_thaonx4.mockanimation.databinding.ItemLayoutBinding
 

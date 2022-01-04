@@ -84,7 +84,6 @@
         app:layout_constraintTop_toBottomOf="@+id/tvText"
         app:layout_constraintBottom_toTopOf="@+id/view2"/>
 
-
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
